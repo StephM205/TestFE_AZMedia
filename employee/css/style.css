@@ -1,3 +1,4 @@
+/* Toàn bộ body và các phần tử gốc */
 * {
   margin: 0;
   padding: 0;
@@ -31,6 +32,7 @@ h6 {
   color: #333;
 }
 
+/* Thanh điều hướng cho nhân viên */
 #sidebar-container {
   width: 300px;
   background-color: #2c3e50;
@@ -38,6 +40,10 @@ h6 {
   height: 100vh;
   padding: 20px;
   position: fixed;
+  top: 0;
+  left: 0;
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000; /* Ensure sidebar is on top */
 }
 
 #sidebar-container h5 {
@@ -78,13 +84,15 @@ h6 {
   border: 1px solid #2c3e50;
 }
 
+/* Nội dung chính */
 .content {
-  margin-left: 320px;
+  margin-left: 320px; /* Để tránh bị che khuất bởi sidebar */
   padding: 30px;
   background-color: white;
   min-height: 100vh;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
+  transition: margin-left 0.3s ease; /* Smooth transition for margin adjustment */
 }
 
 .content h2 {
@@ -99,6 +107,7 @@ h6 {
   margin-bottom: 30px;
 }
 
+/* Các card chức năng */
 .card {
   border-radius: 10px;
   overflow: hidden;
@@ -188,14 +197,42 @@ h6 {
 }
 
 /* Responsive */
-@media (max-width: 768px) {
-  .d-flex {
-    flex-direction: column;
+@media (max-width: 1024px) {
+  #sidebar-container {
+    width: 250px;
+    padding: 15px;
   }
 
+  .content {
+    margin-left: 270px; /* Adjust to prevent overlap */
+    padding: 25px;
+  }
+
+  .content h2 {
+    font-size: 24px;
+  }
+
+  .card-body {
+    padding: 18px;
+  }
+
+  .btn {
+    padding: 8px 18px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
   #sidebar-container {
     width: 100%;
-    padding: 20px;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: -100%; /* Initially hide sidebar */
+  }
+
+  #sidebar-container.open {
+    transform: translateX(100%); /* Show the sidebar */
   }
 
   .content {
@@ -215,6 +252,20 @@ h6 {
     padding: 8px 15px;
     font-size: 12px;
   }
+
+  /* Add a toggle button for mobile navigation */
+  .mobile-toggle {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #2980b9;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1050;
+  }
 }
 
 @media (max-width: 576px) {
@@ -224,5 +275,10 @@ h6 {
 
   .card-body {
     padding: 10px;
+  }
+
+  .btn {
+    padding: 8px 12px;
+    font-size: 11px;
   }
 }

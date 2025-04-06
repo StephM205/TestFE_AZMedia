@@ -18,6 +18,13 @@
       <div id="sidebar-container"></div>
 
       <main class="content flex-grow-1 p-4">
+        <button
+          style="color: white; border: 0"
+          id="sidebar-toggle"
+          class="mobile-toggle"
+        >
+          <i class="bi bi-list"></i>
+        </button>
         <h2>Chấm Công</h2>
         <p>
           Để ghi lại giờ làm việc, vui lòng thực hiện các thao tác dưới đây.
@@ -26,7 +33,8 @@
         <div class="card shadow-sm mb-4">
           <div class="card-body">
             <h5 class="card-title">
-              <i class="bi bi-clock-fill me-2"></i>Chấm Công Ngày Hôm Nay
+              <i class="bi bi-clock-fill me-2"></i>Chấm Công Ngày:
+              <span id="current-date"></span>
             </h5>
             <div class="d-flex justify-content-between align-items-center">
               <div>
@@ -87,6 +95,11 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+      const today = new Date();
+      const options = { day: "2-digit", month: "2-digit", year: "numeric" };
+      const formattedDate = today.toLocaleDateString("vi-VN", options);
+      document.getElementById("current-date").textContent = formattedDate;
+
       document
         .getElementById("check-in-btn")
         .addEventListener("click", function () {
@@ -108,6 +121,13 @@
         .then((data) => {
           document.getElementById("sidebar-container").innerHTML = data;
         });
+
+      const sidebar = document.getElementById("sidebar-container");
+      const toggleButton = document.querySelector(".mobile-toggle");
+
+      toggleButton.addEventListener("click", () => {
+        sidebar.classList.toggle("open");
+      });
     </script>
   </body>
 </html>

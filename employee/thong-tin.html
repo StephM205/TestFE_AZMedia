@@ -20,6 +20,13 @@
 
       <!-- Nội dung chính -->
       <main class="content flex-grow-1 p-4">
+        <button
+          style="color: white; border: 0"
+          id="sidebar-toggle"
+          class="mobile-toggle"
+        >
+          <i class="bi bi-list"></i>
+        </button>
         <h2>Thông Tin Cá Nhân</h2>
         <p>Cập nhật thông tin cá nhân của bạn.</p>
 
@@ -124,6 +131,13 @@
         .then((data) => {
           document.getElementById("sidebar-container").innerHTML = data;
         });
+
+      const sidebar = document.getElementById("sidebar-container");
+      const toggleButton = document.querySelector(".mobile-toggle");
+
+      toggleButton.addEventListener("click", () => {
+        sidebar.classList.toggle("open");
+      });
     </script>
   </body>
 </html>

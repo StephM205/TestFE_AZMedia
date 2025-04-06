@@ -20,6 +20,13 @@
 
       <!-- Main Content -->
       <main class="content flex-grow-1">
+        <button
+          style="color: white; border: 0"
+          id="sidebar-toggle"
+          class="mobile-toggle"
+        >
+          <i class="bi bi-list"></i>
+        </button>
         <h2>Quản Lý Chấm Công</h2>
         <p>Quản lý và theo dõi lịch chấm công của nhân viên trong hệ thống.</p>
 
@@ -86,6 +93,13 @@
         .then((data) => {
           document.getElementById("sidebar-container").innerHTML = data;
         });
+
+      const sidebar = document.getElementById("sidebar-container");
+      const toggleButton = document.querySelector(".mobile-toggle");
+
+      toggleButton.addEventListener("click", () => {
+        sidebar.classList.toggle("open");
+      });
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

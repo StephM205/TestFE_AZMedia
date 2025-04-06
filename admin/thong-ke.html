@@ -21,6 +21,13 @@
 
       <!-- Main Content -->
       <main class="content flex-grow-1">
+        <button
+          style="color: white; border: 0"
+          id="sidebar-toggle"
+          class="mobile-toggle"
+        >
+          <i class="bi bi-list"></i>
+        </button>
         <h2>Thống Kê</h2>
         <p>
           Xem các báo cáo và biểu đồ thống kê về chấm công, lương, và các chỉ số
@@ -151,6 +158,13 @@
             },
           },
         },
+      });
+
+      const sidebar = document.getElementById("sidebar-container");
+      const toggleButton = document.querySelector(".mobile-toggle");
+
+      toggleButton.addEventListener("click", () => {
+        sidebar.classList.toggle("open");
       });
     </script>
   </body>

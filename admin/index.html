@@ -18,6 +18,13 @@
       <div id="sidebar-container"></div>
 
       <main class="content flex-grow-1">
+        <button
+          style="color: white; border: 0"
+          id="sidebar-toggle"
+          class="mobile-toggle"
+        >
+          <i class="bi bi-list"></i>
+        </button>
         <div class="d-flex justify-content-between align-items-center">
           <h2>Dashboard</h2>
         </div>
@@ -146,6 +153,13 @@
             },
           },
         },
+      });
+
+      const sidebar = document.getElementById("sidebar-container");
+      const toggleButton = document.querySelector(".mobile-toggle");
+
+      toggleButton.addEventListener("click", () => {
+        sidebar.classList.toggle("open");
       });
     </script>
   </body>
