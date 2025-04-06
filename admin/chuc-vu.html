@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Quản Lý Chức Vụ - Admin</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="d-flex">
+      <!-- Sidebar -->
+      <div id="sidebar-container"></div>
+
+      <!-- Main Content -->
+      <main class="content flex-grow-1">
+        <h2>Quản Lý Chức Vụ</h2>
+        <p>
+          Quản lý các chức vụ trong hệ thống. Thêm, sửa và xóa các chức vụ cho
+          nhân viên.
+        </p>
+
+        <!-- Add Position Button -->
+        <div class="d-flex justify-content-end mb-3">
+          <a href="them-chuc-vu.html" class="btn btn-success">
+            <i class="bi bi-plus-circle me-2"></i>Thêm Chức Vụ
+          </a>
+        </div>
+
+        <!-- Position List -->
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Tên Chức Vụ</th>
+                <th>Mô Tả</th>
+                <th>Hành Đsộng</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Nhân viên</td>
+                <td>Chịu trách nhiệm thực hiện công việc hàng ngày.</td>
+                <td>
+                  <a href="sua-nhan-su.html" class="btn btn-warning btn-sm">
+                    Sửa
+                  </a>
+                  <a class="btn btn-danger btn-sm">Xóa</a>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Quản lý</td>
+                <td>Giám sát và quản lý nhóm nhân viên.</td>
+                <td>
+                  <a href="sua-nhan-su.html" class="btn btn-warning btn-sm">
+                    Sửa
+                  </a>
+                  <a class="btn btn-danger btn-sm">Xóa</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      fetch("layout/sidebar.html")
+        .then((res) => res.text())
+        .then((data) => {
+          document.getElementById("sidebar-container").innerHTML = data;
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
