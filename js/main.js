@@ -51,3 +51,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+showAdd = false;
+
+openAddModal = function () {
+  this.showAdd = true;
+};
+
+closeAddModal = function () {
+  this.showAdd = false;
+};

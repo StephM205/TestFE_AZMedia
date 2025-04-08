@@ -35,7 +35,12 @@
 
         <!-- Add Employee Button -->
         <div class="d-flex justify-content-end mb-3">
-          <a href="them-nhan-su.html" class="btn btn-success">
+          <a
+            href="#"
+            class="btn btn-success"
+            data-bs-toggle="modal"
+            data-bs-target="#addEmployeeModal"
+          >
             <i class="bi bi-person-plus me-2"></i>Thêm Nhân Viên
           </a>
         </div>
@@ -61,20 +66,12 @@
                 <td>Nhân viên</td>
                 <td>01/01/2020</td>
                 <td>
-                  <a href="sua-nhan-su.html" class="btn btn-warning btn-sm">
-                    Sửa
-                  </a>
-                  <a class="btn btn-danger btn-sm">Xóa</a>
-                </td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Trần Thị B</td>
-                <td>b.tran@example.com</td>
-                <td>Quản lý</td>
-                <td>15/03/2021</td>
-                <td>
-                  <a href="sua-nhan-su.html" class="btn btn-warning btn-sm">
+                  <a
+                    href="#"
+                    class="btn btn-warning btn-sm"
+                    data-bs-toggle="modal"
+                    data-bs-target="#editEmployeeModal"
+                  >
                     Sửa
                   </a>
                   <a class="btn btn-danger btn-sm">Xóa</a>
@@ -84,6 +81,161 @@
           </table>
         </div>
       </main>
+    </div>
+
+    <!-- Modal Thêm Nhân Viên -->
+    <div
+      class="modal fade"
+      id="addEmployeeModal"
+      tabindex="-1"
+      aria-labelledby="addEmployeeModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <form>
+            <div class="modal-header">
+              <h5 class="modal-title" id="addEmployeeModalLabel">
+                Thêm Nhân Viên Mới
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Đóng"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="mb-3">
+                <label for="name" class="form-label">Tên Nhân Viên</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  placeholder="Nhập tên nhân viên"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  placeholder="example@email.com"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="position" class="form-label">Chức Vụ</label>
+                <select class="form-select" id="position" required>
+                  <option selected disabled>Chọn chức vụ</option>
+                  <option value="Nhân viên">Nhân viên</option>
+                  <option value="Quản lý">Quản lý</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="joinDate" class="form-label">Ngày Gia Nhập</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="joinDate"
+                  required
+                />
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Hủy
+              </button>
+              <button type="submit" class="btn btn-success">Lưu</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Sửa Nhân Viên -->
+    <div
+      class="modal fade"
+      id="editEmployeeModal"
+      tabindex="-1"
+      aria-labelledby="editEmployeeModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <form>
+            <div class="modal-header">
+              <h5 class="modal-title" id="editEmployeeModalLabel">
+                Sửa Thông Tin Nhân Viên
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Đóng"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="mb-3">
+                <label for="editName" class="form-label">Tên Nhân Viên</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="editName"
+                  value="Nguyễn Văn A"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="editEmail" class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="editEmail"
+                  value="a.nguyen@example.com"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="editPosition" class="form-label">Chức Vụ</label>
+                <select class="form-select" id="editPosition" required>
+                  <option disabled>Chọn chức vụ</option>
+                  <option selected value="Nhân viên">Nhân viên</option>
+                  <option value="Quản lý">Quản lý</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="editJoinDate" class="form-label"
+                  >Ngày Gia Nhập</label
+                >
+                <input
+                  type="date"
+                  class="form-control"
+                  id="editJoinDate"
+                  value="2020-01-01"
+                  required
+                />
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Hủy
+              </button>
+              <button type="submit" class="btn btn-warning">Cập Nhật</button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
 
     <script>
@@ -101,6 +253,7 @@
       });
     </script>
 
+    <script src="../js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

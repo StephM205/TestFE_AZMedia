@@ -35,9 +35,13 @@
 
         <!-- Add Reward/Discipline Button -->
         <div class="d-flex justify-content-end mb-3">
-          <a href="them-khen-thuong-ky-luat.html" class="btn btn-success">
+          <button
+            class="btn btn-success"
+            data-bs-toggle="modal"
+            data-bs-target="#addRewardDisciplineModal"
+          >
             <i class="bi bi-trophy me-2"></i>Thêm Khen Thưởng/Kỷ Luật
-          </a>
+          </button>
         </div>
 
         <!-- Reward/Discipline List -->
@@ -85,6 +89,92 @@
           </table>
         </div>
       </main>
+    </div>
+
+    <!-- Modal Thêm Khen Thưởng/Kỷ Luật -->
+    <div
+      class="modal fade"
+      id="addRewardDisciplineModal"
+      tabindex="-1"
+      aria-labelledby="rewardDisciplineLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="rewardDisciplineLabel">
+              Thêm Khen Thưởng / Kỷ Luật
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Đóng"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="rewardDisciplineForm">
+              <div class="mb-3">
+                <label for="employeeName" class="form-label"
+                  >Tên Nhân Viên</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="employeeName"
+                  placeholder="Nhập tên nhân viên"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="type" class="form-label">Loại</label>
+                <select class="form-select" id="type" required>
+                  <option value="">-- Chọn Loại --</option>
+                  <option value="Khen Thưởng">Khen Thưởng</option>
+                  <option value="Kỷ Luật">Kỷ Luật</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="decisionDate" class="form-label"
+                  >Ngày Quyết Định</label
+                >
+                <input
+                  type="date"
+                  class="form-control"
+                  id="decisionDate"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="reason" class="form-label">Lý Do</label>
+                <textarea
+                  class="form-control"
+                  id="reason"
+                  rows="3"
+                  placeholder="Nhập lý do"
+                  required
+                ></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Hủy
+            </button>
+            <button
+              type="submit"
+              class="btn btn-success"
+              form="rewardDisciplineForm"
+            >
+              Lưu
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script>

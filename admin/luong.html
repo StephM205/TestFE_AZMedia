@@ -35,9 +35,13 @@
 
         <!-- Add Salary Button -->
         <div class="d-flex justify-content-end mb-3">
-          <a href="them-luong.html" class="btn btn-success">
+          <button
+            class="btn btn-success"
+            data-bs-toggle="modal"
+            data-bs-target="#addSalaryModal"
+          >
             <i class="bi bi-cash-stack me-2"></i>Thêm Lương
-          </a>
+          </button>
         </div>
 
         <!-- Salary List -->
@@ -84,6 +88,90 @@
           </table>
         </div>
       </main>
+    </div>
+
+    <!-- Modal Thêm Lương -->
+    <div
+      class="modal fade"
+      id="addSalaryModal"
+      tabindex="-1"
+      aria-labelledby="addSalaryLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addSalaryLabel">
+              Thêm Lương Nhân Viên
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Đóng"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="addSalaryForm">
+              <div class="mb-3">
+                <label for="employeeName" class="form-label"
+                  >Tên Nhân Viên</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="employeeName"
+                  placeholder="Nhập tên nhân viên"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="salaryAmount" class="form-label"
+                  >Mức Lương (VND)</label
+                >
+                <input
+                  type="number"
+                  class="form-control"
+                  id="salaryAmount"
+                  placeholder="Nhập mức lương"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="salaryMonth" class="form-label">Tháng</label>
+                <select class="form-select" id="salaryMonth" required>
+                  <option value="">-- Chọn Tháng --</option>
+                  ${[...Array(12).keys()].map(i => `
+                  <option value="${i + 1}">${i + 1}</option>
+                  `).join('')}
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="salaryYear" class="form-label">Năm</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="salaryYear"
+                  value="2025"
+                  required
+                />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Hủy
+            </button>
+            <button type="submit" class="btn btn-success" form="addSalaryForm">
+              Lưu
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script>

@@ -236,6 +236,92 @@ select {
   padding-right: 30px;
 }
 
+/* Glassmorphism-style modal */
+.modal-content {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+/* Modal header styling */
+.modal-header {
+  border-bottom: none;
+  background-color: transparent;
+}
+
+.modal-title {
+  font-weight: bold;
+  color: #2c3e50;
+  font-size: 1.5rem;
+}
+
+/* Close button */
+.btn-close {
+  background-color: #ddd;
+  border-radius: 50%;
+  opacity: 1;
+  transition: all 0.3s;
+}
+.btn-close:hover {
+  background-color: #bbb;
+}
+
+/* Form styling inside modal */
+.modal-body .form-label {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.modal-body input,
+.modal-body select {
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  padding: 10px 15px;
+  transition: all 0.2s ease-in-out;
+  background-color: #fefefe;
+}
+
+.modal-body input:focus,
+.modal-body select:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.2);
+}
+
+/* Modal footer buttons */
+.modal-footer {
+  border-top: none;
+  background-color: transparent;
+}
+
+.modal-footer .btn {
+  border-radius: 12px;
+  font-weight: 500;
+  padding: 10px 20px;
+}
+
+.modal-footer .btn-success {
+  background-color: #2ecc71;
+  border: none;
+  transition: background-color 0.3s;
+}
+.modal-footer .btn-success:hover {
+  background-color: #27ae60;
+}
+
+.modal-footer .btn-secondary {
+  background-color: #bdc3c7;
+  border: none;
+  transition: background-color 0.3s;
+}
+.modal-footer .btn-secondary:hover {
+  background-color: #95a5a6;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 }

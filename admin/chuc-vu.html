@@ -35,9 +35,13 @@
 
         <!-- Add Position Button -->
         <div class="d-flex justify-content-end mb-3">
-          <a href="them-chuc-vu.html" class="btn btn-success">
+          <button
+            class="btn btn-success"
+            data-bs-toggle="modal"
+            data-bs-target="#addPositionModal"
+          >
             <i class="bi bi-plus-circle me-2"></i>Thêm Chức Vụ
-          </a>
+          </button>
         </div>
 
         <!-- Position List -->
@@ -78,6 +82,71 @@
           </table>
         </div>
       </main>
+    </div>
+
+    <!-- Modal Thêm Chức Vụ -->
+    <div
+      class="modal fade"
+      id="addPositionModal"
+      tabindex="-1"
+      aria-labelledby="addPositionLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addPositionLabel">Thêm Chức Vụ Mới</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Đóng"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="addPositionForm">
+              <div class="mb-3">
+                <label for="positionName" class="form-label">Tên Chức Vụ</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="positionName"
+                  placeholder="Nhập tên chức vụ"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="positionDescription" class="form-label"
+                  >Mô Tả</label
+                >
+                <textarea
+                  class="form-control"
+                  id="positionDescription"
+                  rows="3"
+                  placeholder="Mô tả chức vụ"
+                  required
+                ></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Hủy
+            </button>
+            <button
+              type="submit"
+              class="btn btn-success"
+              form="addPositionForm"
+            >
+              Lưu
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script>
